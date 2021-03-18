@@ -13,16 +13,16 @@ node {
     }
 
     stage("Stage4"){
-        echo "Hello"
+        timestemps {
+             echo "Hello"
+        }
+       
     }
 
     stage("Send Notifications to Slack"){
 		slackSend color: '#BADA55', message: 'Hello, World!'
 	}
 
-    stage("Sleep"){
-        sleep 60
-    }
 
     stage("Send Email to Support"){
 		mail bcc: '', body: 'Running', cc: 'support@company.com', from: '', replyTo: '', subject: 'Test', to: 'farrukhsadykov@gmail.com'
@@ -40,3 +40,7 @@ node {
 	// 		fi
 	// 	'''
 	// }
+
+    // stage("Sleep"){
+    //     sleep 60
+    // }
