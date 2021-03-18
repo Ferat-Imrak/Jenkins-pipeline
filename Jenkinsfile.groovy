@@ -1,11 +1,17 @@
-properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '10', numToKeepStr: '10')), 
-parameters([choice(choices: ['dev', 'qa', 'stage', 'prod'], description: 'Which Environment to Build?', name: 'ENVIRONMENT_TO_BUILD')]), 
-pipelineTriggers([cron('H/5 * * * *')])])
+properties([
+    buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '10', numToKeepStr: '10')), 
+    parameters([choice(choices: [
+        'dev', 
+        'qa', 
+        'stage', 
+        'prod'], 
+    description: 'Which Environment to Build?', name: 'ENVIRONMENT_TO_BUILD')]), 
+    pipelineTriggers([cron('H/5 * * * *')])])
 
 
 node {
-    stage("Stage1"){
-        echo "Hello"
+    stage("Terraform Pipeline"){
+        git checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/jiro1/vpc-jenkins-job.git']]])
     }
 
     stage("Stage2"){
