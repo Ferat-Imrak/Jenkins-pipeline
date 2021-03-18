@@ -5,7 +5,7 @@ properties([
         'qa', 
         'stage', 
         'prod'], 
-    description: 'Which Environment to Build?', name: 'ENVIRONMENT_TO_BUILD')]), 
+    description: 'Which Environment to Build?', name: 'ENVIRONMENT')]), 
     pipelineTriggers([cron('H/5 * * * *')])])
 
 
