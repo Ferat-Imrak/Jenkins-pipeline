@@ -14,9 +14,8 @@ node {
 
     stage("Stage4"){
         timestamps {
-             echo "Hello"
+            echo "Hello"
         }
-       
     }
 
     stage("Send Notifications to Slack"){
@@ -43,4 +42,12 @@ node {
 
     // stage("Sleep"){
     //     sleep 60
+    // }
+
+    // stage("Intentionally Failed"){
+    // 		error 'failed'
+    // }
+    
+    // 	stage("Call Another Job"){
+    // 		build "Packer"
     // }
