@@ -14,12 +14,12 @@ node {
         checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/jiro1/vpc-jenkins-job.git']]])
     }
 
-    stage("Format"){
-		timestamps {
-            ws("workspace/vpc-jenkins-job/vpc"){
-                sh "make f"
-            }
-    }
+    // stage("Format"){
+	// 	timestamps {
+    //         ws("workspace/vpc-jenkins-job/vpc"){
+    //             sh "make f"
+    //         }
+    // }
 }
 	stage("Initialize"){
 		timestamps {
