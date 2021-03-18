@@ -11,7 +11,7 @@ properties([
 
 node {
     stage("Terraform Pipeline"){
-        git checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/jiro1/vpc-jenkins-job.git']]])
+        checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/jiro1/vpc-jenkins-job.git']]])
     }
 
     stage("Stage2"){
