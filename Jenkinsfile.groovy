@@ -18,14 +18,14 @@ node {
 
     stage("Format"){
 		timestamps {
-            ws("workspace/vpc-jenkins-job"){
+            ws("workspace/vpc-jenkins-job/vpc"){
                 sh "make f"
             }
     }
 }
 	stage("Initialize"){
 		timestamps {
-            ws("workspace/vpc-jenkins-job"){
+            ws("workspace/vpc-jenkins-job/vpc"){
                 sh "make i"
             }
     }
