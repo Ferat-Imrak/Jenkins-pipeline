@@ -1,5 +1,5 @@
 node {
-    properties([pipelineTriggers([cron('*/5 * * * *')])])
+    properties([pipelineTriggers([cron('H/5 * * * *')])])
     stage("Stage1"){
         echo "Hello"
     }
