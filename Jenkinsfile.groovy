@@ -20,7 +20,23 @@ node {
 		slackSend color: '#BADA55', message: 'Hello, World!'
 	}
 
+    stage("Sleep"){
+        sleep 60
+    }
+
     stage("Send Email to Support"){
 		mail bcc: '', body: 'Running', cc: 'support@company.com', from: '', replyTo: '', subject: 'Test', to: 'farrukhsadykov@gmail.com'
 	}
 }
+
+    //stage("Script"){
+	// 	sh label: '', script: 
+	// 	'''#!/bin/bash
+	// 		if [ ! -d /tmp/foo.txt ]; 
+	// 		then
+	// 			echo "Folder not found!"
+	// 			echo "Creating a folder"
+	// 			mkdir -p "/tmp/foo.txt" 
+	// 		fi
+	// 	'''
+	// }
