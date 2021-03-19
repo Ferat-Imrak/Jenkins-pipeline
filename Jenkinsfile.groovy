@@ -32,7 +32,11 @@ node {
 }
 
     stage("Stage2"){
-        echo "Hello"
+        timestamps {
+            ws("workspace/vpc-jenkins-job/vpc"){
+                sh "make p"
+            }
+    }
     }
 
     stage("Stage3"){
