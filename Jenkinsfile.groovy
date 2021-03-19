@@ -15,7 +15,7 @@ node {
 
     stage("Format"){
 		timestamps {
-            ws("workspace/vpc-jenkins-job/vpc"){
+            ws("workspace/vpc-jenkins-job/asg"){
                 sh "make f"
                 echo "${ACTION}"
             }
@@ -24,14 +24,14 @@ node {
 
     stage("Cleaning"){
           timestamps {
-            ws("workspace/vpc-jenkins-job/vpc"){
+            ws("workspace/vpc-jenkins-job/asg"){
                 sh "make c"
             }
     }
     }
 	stage("Initialize"){
 		timestamps {
-            ws("workspace/vpc-jenkins-job/vpc"){
+            ws("workspace/vpc-jenkins-job/asg"){
                 sh "make i"
             }
     }
@@ -39,7 +39,7 @@ node {
 
     stage("Plan"){
         timestamps {
-            ws("workspace/vpc-jenkins-job/vpc"){
+            ws("workspace/vpc-jenkins-job/asg"){
                 sh "make p"
             }
     }
@@ -47,7 +47,7 @@ node {
 
     stage("Apply Pipeline"){
           timestamps {
-            ws("workspace/vpc-jenkins-job/vpc"){
+            ws("workspace/vpc-jenkins-job/asg"){
                 sh "make ${ACTION}"
             }
     }
