@@ -1,11 +1,7 @@
 properties([
     buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '10', numToKeepStr: '10')), 
-    parameters([choice(choices: [
-        'dev', 
-        'qa', 
-        'stage', 
-        'prod'], 
-    description: 'Which Environment to Build?', name: 'ENVIRONMENT')]), 
+    disableConcurrentBuilds(), 
+    parameters([choice(choices: ['dev', 'qa', 'stage', 'prod'], description: 'Which Environment to Build?', name: 'ENVIRONMENT')]), 
     pipelineTriggers([cron('H/5 * * * *')])])
 
 
@@ -58,11 +54,6 @@ node {
     stage("Send Notifications to Slack"){
 		slackSend color: '#BADA55', message: 'Hello, World!'
 	}
-
-
-    // stage("Send Email to Support"){
-	// 	mail bcc: '', body: 'Running', cc: 'support@company.com', from: '', replyTo: '', subject: 'Test', to: 'farrukhsadykov@gmail.com'
-	// }
 }
 
     //stage("Script"){
@@ -88,3 +79,7 @@ node {
     // 	stage("Call Another Job"){
     // 		build "Packer"
     // }
+
+    // stage("Send Email to Support"){
+	// 	mail bcc: '', body: 'Running', cc: 'support@company.com', from: '', replyTo: '', subject: 'Test', to: 'farrukhsadykov@gmail.com'
+	// }
