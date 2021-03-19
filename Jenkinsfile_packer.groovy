@@ -19,7 +19,7 @@ properties(
             'stage', 
             'prod'], 
             description: 'Which Environment? ', 
-            name: 'ENVIRONMENT')
+            name: 'ENVIRONMENT'),
 			choice(choices: 
 			[
 			'us-east-1', 
