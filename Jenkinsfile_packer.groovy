@@ -12,7 +12,14 @@ properties(
             choice(choices: 
             ['a', 'd'], 
             description: 'Apply_Delete', 
-            name: 'ACTION'), 
+            name: 'ACTION'),
+            choice(choices: [
+                'dev', 
+                'qa', 
+                'stage', 
+                'prod'], 
+            description: 'Which Environment? ', 
+            name: 'ENVIRONMENT')]), 
 			choice(choices: 
 			[
 			'us-east-1', 
