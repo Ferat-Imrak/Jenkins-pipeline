@@ -1,6 +1,6 @@
 properties([
     buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '5', numToKeepStr: '5')), 
-    disableConcurrentBuilds(), parameters([choice(choices: ['a', 'd'], description: 'Apply/Delete', name: 'Action'), 
+    disableConcurrentBuilds(), parameters([choice(choices: ['a', 'd'], description: 'Apply/Delete', name: 'ACTION'), 
     choice(choices: ['dev', 'qa', 'stage', 'prod'], description: 'Which Environment? ', name: 'ENVIRONMENT')]), 
     pipelineTriggers([cron('H/5 * * * *')])])
 
@@ -47,7 +47,7 @@ node {
     stage("Apply Pipeline"){
           timestamps {
             ws("workspace/vpc-jenkins-job/vpc"){
-                sh "make a"
+                sh "make ${ACTION}"
             }
     }
     }
