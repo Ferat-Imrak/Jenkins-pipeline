@@ -16,6 +16,7 @@ node {
 		timestamps {
             ws("workspace/vpc-jenkins-job/vpc"){
                 sh "make f"
+                echo "${ACTION}"
             }
     }
 }
