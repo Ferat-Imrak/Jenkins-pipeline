@@ -42,7 +42,7 @@ node {
     stage("Apply Pipeline"){
           timestamps {
             ws("workspace/vpc-jenkins-job/vpc"){
-                sh "make p"
+                sh "make a"
             }
     }
     }
