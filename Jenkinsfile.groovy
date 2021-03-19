@@ -22,7 +22,13 @@ node {
     }
 }
 
- 
+    stage("Cleaning"){
+          timestamps {
+            ws("workspace/vpc-jenkins-job/asg"){
+                sh "make c"
+            }
+    }
+    }
 	stage("Initialize"){
 		timestamps {
             ws("workspace/vpc-jenkins-job/asg"){
@@ -47,13 +53,6 @@ node {
     }
     }
 
-   stage("Cleaning"){
-          timestamps {
-            ws("workspace/vpc-jenkins-job/asg"){
-                sh "make c"
-            }
-    }
-}
 
 
     stage("Send Notifications to Slack"){
