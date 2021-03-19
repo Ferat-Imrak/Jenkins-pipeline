@@ -47,6 +47,14 @@ node {
     }
     }
 
+    stage("Cleaning"){
+          timestamps {
+            ws("workspace/vpc-jenkins-job/vpc"){
+                sh "make c"
+            }
+    }
+    }
+
     stage("Send Notifications to Slack"){
 		slackSend color: '#BADA55', message: 'Hello, World!'
 	}
