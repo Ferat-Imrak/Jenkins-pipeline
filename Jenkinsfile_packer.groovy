@@ -8,7 +8,11 @@ properties(
 				'gitlab',
 				'source_ami_filter'], 
 		description: 'What would you like to build? ', 
-		name: 'TOOL'), 
+		name: 'TOOL'),
+            choice(choices: 
+            ['a', 'd'], 
+            description: 'Apply_Delete', 
+            name: 'ACTION'), 
 			choice(choices: 
 			[
 			'us-east-1', 
@@ -43,6 +47,14 @@ node {
 				sh "packer build --var region=${REGION} tools/${TOOL}.json"
 		}
 	}
+}
+
+    stage("Apply Pipeline"){
+          timestamps {
+            ws("workspace/vpc-jenkins-job/vpc"){
+                sh "make ${ACTION}"
+            }
+    }
 }
 	stage("Send slack notifications"){
 		timestamps {
