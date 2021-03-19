@@ -31,7 +31,7 @@ node {
     }
 }
 
-    stage("Stage2"){
+    stage("Plan"){
         timestamps {
             ws("workspace/vpc-jenkins-job/vpc"){
                 sh "make p"
@@ -40,13 +40,11 @@ node {
     }
 
     stage("Stage3"){
-        echo "Hello"
+          timestamps {
+            ws("workspace/vpc-jenkins-job/vpc"){
+                sh "make p"
+            }
     }
-
-    stage("Stage4"){
-        timestamps {
-            echo "Hello"
-        }
     }
 
     stage("Send Notifications to Slack"){
