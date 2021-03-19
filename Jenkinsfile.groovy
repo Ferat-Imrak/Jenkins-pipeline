@@ -29,6 +29,7 @@ node {
             }
     }
     }
+
 	stage("Initialize"){
 		timestamps {
             ws("workspace/vpc-jenkins-job/eks"){
